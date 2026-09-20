@@ -1,6 +1,7 @@
 package com.poorvi.library_system.entity;
 import jakarta.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 @Entity
 public class Member
 {
@@ -10,7 +11,7 @@ public class Member
     private String email;
     private String role; // "LIBRARIAN" or "MEMBER"
     @OneToMany(mappedBy = "member")
-    private ArrayList<Loan> loans = new ArrayList<>();
+    private List<Loan> loans = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -44,11 +45,11 @@ public class Member
         this.role = role;
     }
 
-    public ArrayList<Loan> getLoans() {
+    public List<Loan> getLoans() {
         return loans;
     }
 
-    public void setLoans(ArrayList<Loan> loans) {
+    public void setLoans(List<Loan> loans) {
         this.loans = loans;
     }
 }

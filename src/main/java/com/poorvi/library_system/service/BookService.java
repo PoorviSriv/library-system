@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
+import com.poorvi.library_system.exception.ResourceNotFoundException;
 @Service
 public class BookService
 {
@@ -28,13 +29,13 @@ public class BookService
     }
     public BookResponseDTO getBookById(String id)
     { Book book = bookRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+            .orElseThrow(() -> new ResourceNotFoundException("Book not found with id: " + id));
         return toResponseDTO(book);
     }
     public BookResponseDTO updateBook(String id, BookRequestDTO request)
     {
         Book book = bookRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id: " + id));
         book.setTitle(request.getTitle());
         book.setIsbn(request.getIsbn());
         book.setTotalCopies(request.getTotalCopies());
