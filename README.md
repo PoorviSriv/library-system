@@ -17,4 +17,4 @@ A REST API for managing a library's books, authors, members, and loans.
 
 ## Tech stack
 
-Spring Boot, Spring Data JPA, Spring Security, Kafka, Docker, Kubernetes
+Spring Boot, Spring Data JPA (Hibernate), JUnit, Mockito
