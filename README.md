@@ -15,6 +15,18 @@ A REST API for managing a library's books, authors, members, and loans.
 - A **Member** can have multiple **Loans**, but each **Loan** belongs to one **Member** — one-to-many
 - A **Book** can be borrowed many times over its life (multiple **Loans**), but each **Loan** is for exactly one **Book** — one-to-many
 
+## Testing
+
+- **Unit tests** (JUnit 5 + Mockito): `LoanService` business rules, including
+  the loan limit, copy availability, and double-return prevention
+- **Integration tests** (`@SpringBootTest` + MockMvc): request validation,
+  error responses, and endpoints for Book and Member
+- **Line coverage:** 74%
+
+Run all tests:
+
+    ./mvnw test
+
 ## Tech stack
 
 Spring Boot, Spring Data JPA (Hibernate), JUnit, Mockito
